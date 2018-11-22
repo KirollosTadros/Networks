@@ -7,7 +7,8 @@ string get_remainder(string dividend, string divisor) {
     /*
         Performs "long division" by XORing and shifting
 
-        Returns the remainder as a string
+        Returns the remainder as a string or an empty
+        string if remainder is zero
 
         Example test cases:
         (the underscore "_" just indicates the zeroes added
@@ -15,6 +16,7 @@ string get_remainder(string dividend, string divisor) {
 
         (1) 11010011101100_000 mod 1011 = 100
         (2) 01010111_00000000 mod 100000111 = 10100010
+        (3) 1001 mod 1001 = ""
     */
     int num_shifts = dividend.length() - divisor.length() + 1;
     for (int i=0; i<num_shifts; ++i) {
@@ -32,7 +34,7 @@ string get_remainder(string dividend, string divisor) {
         }
     }
     //trim all leading zeroes
-    while (dividend[0] == '0') {
+    while (dividend.length() && dividend[0] == '0') {
         dividend.erase(0, 1);
     }
     return dividend;
