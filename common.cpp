@@ -7,7 +7,8 @@ string get_remainder(string dividend, string divisor) {
     /*
         Performs "long division" by XORing and shifting
 
-        Returns the remainder as a string
+        Returns the remainder as a string or an empty
+        string if remainder is zero
 
         Example test cases:
         (the underscore "_" just indicates the zeroes added
