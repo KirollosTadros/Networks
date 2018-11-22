@@ -3,17 +3,26 @@
 #include "common.h"
 using namespace std;
 
-int main()
+int main(int argc, char **argv)
 {
 	int alter;
+	if(argc>1)
+	{
+	alter = stoi(argv[1]);
+	}
 	string generatorOutput;
-	string inverted;
+	string polynomial;
 	getline(cin,generatorOutput);
-	cin>>alter;
+	getline(cin,polynomial);
+	if(alter<=generatorOutput.length()&&alter>0)
+	{
 	if(generatorOutput[alter-1]=='1')
-		inverted="0";
+		generatorOutput[alter-1]='0';
 	else
-		inverted="1";
-	cout<<generatorOutput.substr(0,alter-1)+inverted+generatorOutput.substr(alter,generatorOutput.length()-alter+1)<<endl;
+		generatorOutput[alter-1]='1';
+	}
+	cout<<generatorOutput<<endl;
+	cout<<polynomial<<endl;
+
 
 }
